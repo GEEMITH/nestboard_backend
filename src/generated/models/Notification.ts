@@ -206,9 +206,9 @@ export type NotificationWhereInput = {
   message?: Prisma.StringFilter<"Notification"> | string
   isRead?: Prisma.BoolFilter<"Notification"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Notification"> | Date | string
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   booking?: Prisma.XOR<Prisma.BookingNullableScalarRelationFilter, Prisma.BookingWhereInput> | null
   property?: Prisma.XOR<Prisma.PropertyNullableScalarRelationFilter, Prisma.PropertyWhereInput> | null
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
 export type NotificationOrderByWithRelationInput = {
@@ -220,9 +220,9 @@ export type NotificationOrderByWithRelationInput = {
   message?: Prisma.SortOrder
   isRead?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  user?: Prisma.UserOrderByWithRelationInput
   booking?: Prisma.BookingOrderByWithRelationInput
   property?: Prisma.PropertyOrderByWithRelationInput
+  user?: Prisma.UserOrderByWithRelationInput
 }
 
 export type NotificationWhereUniqueInput = Prisma.AtLeast<{
@@ -237,9 +237,9 @@ export type NotificationWhereUniqueInput = Prisma.AtLeast<{
   message?: Prisma.StringFilter<"Notification"> | string
   isRead?: Prisma.BoolFilter<"Notification"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Notification"> | Date | string
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   booking?: Prisma.XOR<Prisma.BookingNullableScalarRelationFilter, Prisma.BookingWhereInput> | null
   property?: Prisma.XOR<Prisma.PropertyNullableScalarRelationFilter, Prisma.PropertyWhereInput> | null
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
 
 export type NotificationOrderByWithAggregationInput = {
@@ -276,9 +276,9 @@ export type NotificationCreateInput = {
   message: string
   isRead?: boolean
   createdAt?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutNotificationsInput
   booking?: Prisma.BookingCreateNestedOneWithoutNotificationsInput
   property?: Prisma.PropertyCreateNestedOneWithoutNotificationsInput
+  user: Prisma.UserCreateNestedOneWithoutNotificationsInput
 }
 
 export type NotificationUncheckedCreateInput = {
@@ -298,9 +298,9 @@ export type NotificationUpdateInput = {
   message?: Prisma.StringFieldUpdateOperationsInput | string
   isRead?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutNotificationsNestedInput
   booking?: Prisma.BookingUpdateOneWithoutNotificationsNestedInput
   property?: Prisma.PropertyUpdateOneWithoutNotificationsNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutNotificationsNestedInput
 }
 
 export type NotificationUncheckedUpdateInput = {
@@ -583,8 +583,8 @@ export type NotificationCreateWithoutPropertyInput = {
   message: string
   isRead?: boolean
   createdAt?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutNotificationsInput
   booking?: Prisma.BookingCreateNestedOneWithoutNotificationsInput
+  user: Prisma.UserCreateNestedOneWithoutNotificationsInput
 }
 
 export type NotificationUncheckedCreateWithoutPropertyInput = {
@@ -629,8 +629,8 @@ export type NotificationCreateWithoutBookingInput = {
   message: string
   isRead?: boolean
   createdAt?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutNotificationsInput
   property?: Prisma.PropertyCreateNestedOneWithoutNotificationsInput
+  user: Prisma.UserCreateNestedOneWithoutNotificationsInput
 }
 
 export type NotificationUncheckedCreateWithoutBookingInput = {
@@ -725,8 +725,8 @@ export type NotificationUpdateWithoutPropertyInput = {
   message?: Prisma.StringFieldUpdateOperationsInput | string
   isRead?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutNotificationsNestedInput
   booking?: Prisma.BookingUpdateOneWithoutNotificationsNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutNotificationsNestedInput
 }
 
 export type NotificationUncheckedUpdateWithoutPropertyInput = {
@@ -765,8 +765,8 @@ export type NotificationUpdateWithoutBookingInput = {
   message?: Prisma.StringFieldUpdateOperationsInput | string
   isRead?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutNotificationsNestedInput
   property?: Prisma.PropertyUpdateOneWithoutNotificationsNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutNotificationsNestedInput
 }
 
 export type NotificationUncheckedUpdateWithoutBookingInput = {
@@ -800,9 +800,9 @@ export type NotificationSelect<ExtArgs extends runtime.Types.Extensions.Internal
   message?: boolean
   isRead?: boolean
   createdAt?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   booking?: boolean | Prisma.Notification$bookingArgs<ExtArgs>
   property?: boolean | Prisma.Notification$propertyArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["notification"]>
 
 export type NotificationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -814,9 +814,9 @@ export type NotificationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   message?: boolean
   isRead?: boolean
   createdAt?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   booking?: boolean | Prisma.Notification$bookingArgs<ExtArgs>
   property?: boolean | Prisma.Notification$propertyArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["notification"]>
 
 export type NotificationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -828,9 +828,9 @@ export type NotificationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   message?: boolean
   isRead?: boolean
   createdAt?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   booking?: boolean | Prisma.Notification$bookingArgs<ExtArgs>
   property?: boolean | Prisma.Notification$propertyArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["notification"]>
 
 export type NotificationSelectScalar = {
@@ -846,27 +846,27 @@ export type NotificationSelectScalar = {
 
 export type NotificationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "bookingId" | "propertyId" | "type" | "message" | "isRead" | "createdAt", ExtArgs["result"]["notification"]>
 export type NotificationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   booking?: boolean | Prisma.Notification$bookingArgs<ExtArgs>
   property?: boolean | Prisma.Notification$propertyArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type NotificationIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   booking?: boolean | Prisma.Notification$bookingArgs<ExtArgs>
   property?: boolean | Prisma.Notification$propertyArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type NotificationIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   booking?: boolean | Prisma.Notification$bookingArgs<ExtArgs>
   property?: boolean | Prisma.Notification$propertyArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 
 export type $NotificationPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Notification"
   objects: {
-    user: Prisma.$UserPayload<ExtArgs>
     booking: Prisma.$BookingPayload<ExtArgs> | null
     property: Prisma.$PropertyPayload<ExtArgs> | null
+    user: Prisma.$UserPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1271,9 +1271,9 @@ readonly fields: NotificationFieldRefs;
  */
 export interface Prisma__NotificationClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   booking<T extends Prisma.Notification$bookingArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Notification$bookingArgs<ExtArgs>>): Prisma.Prisma__BookingClient<runtime.Types.Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   property<T extends Prisma.Notification$propertyArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Notification$propertyArgs<ExtArgs>>): Prisma.Prisma__PropertyClient<runtime.Types.Result.GetResult<Prisma.$PropertyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

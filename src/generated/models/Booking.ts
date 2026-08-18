@@ -274,8 +274,8 @@ export type BookingWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"Booking"> | Date | string
   room?: Prisma.XOR<Prisma.RoomScalarRelationFilter, Prisma.RoomWhereInput>
   tenant?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  review?: Prisma.XOR<Prisma.ReviewNullableScalarRelationFilter, Prisma.ReviewWhereInput> | null
   notifications?: Prisma.NotificationListRelationFilter
+  review?: Prisma.XOR<Prisma.ReviewNullableScalarRelationFilter, Prisma.ReviewWhereInput> | null
 }
 
 export type BookingOrderByWithRelationInput = {
@@ -292,8 +292,8 @@ export type BookingOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   room?: Prisma.RoomOrderByWithRelationInput
   tenant?: Prisma.UserOrderByWithRelationInput
-  review?: Prisma.ReviewOrderByWithRelationInput
   notifications?: Prisma.NotificationOrderByRelationAggregateInput
+  review?: Prisma.ReviewOrderByWithRelationInput
 }
 
 export type BookingWhereUniqueInput = Prisma.AtLeast<{
@@ -313,8 +313,8 @@ export type BookingWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"Booking"> | Date | string
   room?: Prisma.XOR<Prisma.RoomScalarRelationFilter, Prisma.RoomWhereInput>
   tenant?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  review?: Prisma.XOR<Prisma.ReviewNullableScalarRelationFilter, Prisma.ReviewWhereInput> | null
   notifications?: Prisma.NotificationListRelationFilter
+  review?: Prisma.XOR<Prisma.ReviewNullableScalarRelationFilter, Prisma.ReviewWhereInput> | null
 }, "id">
 
 export type BookingOrderByWithAggregationInput = {
@@ -365,8 +365,8 @@ export type BookingCreateInput = {
   createdAt?: Date | string
   room: Prisma.RoomCreateNestedOneWithoutBookingsInput
   tenant: Prisma.UserCreateNestedOneWithoutBookingsInput
-  review?: Prisma.ReviewCreateNestedOneWithoutBookingInput
   notifications?: Prisma.NotificationCreateNestedManyWithoutBookingInput
+  review?: Prisma.ReviewCreateNestedOneWithoutBookingInput
 }
 
 export type BookingUncheckedCreateInput = {
@@ -381,8 +381,8 @@ export type BookingUncheckedCreateInput = {
   paymentStatus?: $Enums.PaymentStatus
   bookingStatus?: $Enums.BookingStatus
   createdAt?: Date | string
-  review?: Prisma.ReviewUncheckedCreateNestedOneWithoutBookingInput
   notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutBookingInput
+  review?: Prisma.ReviewUncheckedCreateNestedOneWithoutBookingInput
 }
 
 export type BookingUpdateInput = {
@@ -397,8 +397,8 @@ export type BookingUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   room?: Prisma.RoomUpdateOneRequiredWithoutBookingsNestedInput
   tenant?: Prisma.UserUpdateOneRequiredWithoutBookingsNestedInput
-  review?: Prisma.ReviewUpdateOneWithoutBookingNestedInput
   notifications?: Prisma.NotificationUpdateManyWithoutBookingNestedInput
+  review?: Prisma.ReviewUpdateOneWithoutBookingNestedInput
 }
 
 export type BookingUncheckedUpdateInput = {
@@ -413,8 +413,8 @@ export type BookingUncheckedUpdateInput = {
   paymentStatus?: Prisma.EnumPaymentStatusFieldUpdateOperationsInput | $Enums.PaymentStatus
   bookingStatus?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  review?: Prisma.ReviewUncheckedUpdateOneWithoutBookingNestedInput
   notifications?: Prisma.NotificationUncheckedUpdateManyWithoutBookingNestedInput
+  review?: Prisma.ReviewUncheckedUpdateOneWithoutBookingNestedInput
 }
 
 export type BookingCreateManyInput = {
@@ -664,8 +664,8 @@ export type BookingCreateWithoutTenantInput = {
   bookingStatus?: $Enums.BookingStatus
   createdAt?: Date | string
   room: Prisma.RoomCreateNestedOneWithoutBookingsInput
-  review?: Prisma.ReviewCreateNestedOneWithoutBookingInput
   notifications?: Prisma.NotificationCreateNestedManyWithoutBookingInput
+  review?: Prisma.ReviewCreateNestedOneWithoutBookingInput
 }
 
 export type BookingUncheckedCreateWithoutTenantInput = {
@@ -679,8 +679,8 @@ export type BookingUncheckedCreateWithoutTenantInput = {
   paymentStatus?: $Enums.PaymentStatus
   bookingStatus?: $Enums.BookingStatus
   createdAt?: Date | string
-  review?: Prisma.ReviewUncheckedCreateNestedOneWithoutBookingInput
   notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutBookingInput
+  review?: Prisma.ReviewUncheckedCreateNestedOneWithoutBookingInput
 }
 
 export type BookingCreateOrConnectWithoutTenantInput = {
@@ -737,8 +737,8 @@ export type BookingCreateWithoutRoomInput = {
   bookingStatus?: $Enums.BookingStatus
   createdAt?: Date | string
   tenant: Prisma.UserCreateNestedOneWithoutBookingsInput
-  review?: Prisma.ReviewCreateNestedOneWithoutBookingInput
   notifications?: Prisma.NotificationCreateNestedManyWithoutBookingInput
+  review?: Prisma.ReviewCreateNestedOneWithoutBookingInput
 }
 
 export type BookingUncheckedCreateWithoutRoomInput = {
@@ -752,8 +752,8 @@ export type BookingUncheckedCreateWithoutRoomInput = {
   paymentStatus?: $Enums.PaymentStatus
   bookingStatus?: $Enums.BookingStatus
   createdAt?: Date | string
-  review?: Prisma.ReviewUncheckedCreateNestedOneWithoutBookingInput
   notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutBookingInput
+  review?: Prisma.ReviewUncheckedCreateNestedOneWithoutBookingInput
 }
 
 export type BookingCreateOrConnectWithoutRoomInput = {
@@ -958,8 +958,8 @@ export type BookingUpdateWithoutTenantInput = {
   bookingStatus?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   room?: Prisma.RoomUpdateOneRequiredWithoutBookingsNestedInput
-  review?: Prisma.ReviewUpdateOneWithoutBookingNestedInput
   notifications?: Prisma.NotificationUpdateManyWithoutBookingNestedInput
+  review?: Prisma.ReviewUpdateOneWithoutBookingNestedInput
 }
 
 export type BookingUncheckedUpdateWithoutTenantInput = {
@@ -973,8 +973,8 @@ export type BookingUncheckedUpdateWithoutTenantInput = {
   paymentStatus?: Prisma.EnumPaymentStatusFieldUpdateOperationsInput | $Enums.PaymentStatus
   bookingStatus?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  review?: Prisma.ReviewUncheckedUpdateOneWithoutBookingNestedInput
   notifications?: Prisma.NotificationUncheckedUpdateManyWithoutBookingNestedInput
+  review?: Prisma.ReviewUncheckedUpdateOneWithoutBookingNestedInput
 }
 
 export type BookingUncheckedUpdateManyWithoutTenantInput = {
@@ -1014,8 +1014,8 @@ export type BookingUpdateWithoutRoomInput = {
   bookingStatus?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.UserUpdateOneRequiredWithoutBookingsNestedInput
-  review?: Prisma.ReviewUpdateOneWithoutBookingNestedInput
   notifications?: Prisma.NotificationUpdateManyWithoutBookingNestedInput
+  review?: Prisma.ReviewUpdateOneWithoutBookingNestedInput
 }
 
 export type BookingUncheckedUpdateWithoutRoomInput = {
@@ -1029,8 +1029,8 @@ export type BookingUncheckedUpdateWithoutRoomInput = {
   paymentStatus?: Prisma.EnumPaymentStatusFieldUpdateOperationsInput | $Enums.PaymentStatus
   bookingStatus?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  review?: Prisma.ReviewUncheckedUpdateOneWithoutBookingNestedInput
   notifications?: Prisma.NotificationUncheckedUpdateManyWithoutBookingNestedInput
+  review?: Prisma.ReviewUncheckedUpdateOneWithoutBookingNestedInput
 }
 
 export type BookingUncheckedUpdateManyWithoutRoomInput = {
@@ -1091,8 +1091,8 @@ export type BookingSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   createdAt?: boolean
   room?: boolean | Prisma.RoomDefaultArgs<ExtArgs>
   tenant?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  review?: boolean | Prisma.Booking$reviewArgs<ExtArgs>
   notifications?: boolean | Prisma.Booking$notificationsArgs<ExtArgs>
+  review?: boolean | Prisma.Booking$reviewArgs<ExtArgs>
   _count?: boolean | Prisma.BookingCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["booking"]>
 
@@ -1146,8 +1146,8 @@ export type BookingOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
 export type BookingInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   room?: boolean | Prisma.RoomDefaultArgs<ExtArgs>
   tenant?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  review?: boolean | Prisma.Booking$reviewArgs<ExtArgs>
   notifications?: boolean | Prisma.Booking$notificationsArgs<ExtArgs>
+  review?: boolean | Prisma.Booking$reviewArgs<ExtArgs>
   _count?: boolean | Prisma.BookingCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type BookingIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1164,8 +1164,8 @@ export type $BookingPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   objects: {
     room: Prisma.$RoomPayload<ExtArgs>
     tenant: Prisma.$UserPayload<ExtArgs>
-    review: Prisma.$ReviewPayload<ExtArgs> | null
     notifications: Prisma.$NotificationPayload<ExtArgs>[]
+    review: Prisma.$ReviewPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1575,8 +1575,8 @@ export interface Prisma__BookingClient<T, Null = never, ExtArgs extends runtime.
   readonly [Symbol.toStringTag]: "PrismaPromise"
   room<T extends Prisma.RoomDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RoomDefaultArgs<ExtArgs>>): Prisma.Prisma__RoomClient<runtime.Types.Result.GetResult<Prisma.$RoomPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   tenant<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  review<T extends Prisma.Booking$reviewArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Booking$reviewArgs<ExtArgs>>): Prisma.Prisma__ReviewClient<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   notifications<T extends Prisma.Booking$notificationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Booking$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  review<T extends Prisma.Booking$reviewArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Booking$reviewArgs<ExtArgs>>): Prisma.Prisma__ReviewClient<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2018,25 +2018,6 @@ export type BookingDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 /**
- * Booking.review
- */
-export type Booking$reviewArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Review
-   */
-  select?: Prisma.ReviewSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Review
-   */
-  omit?: Prisma.ReviewOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.ReviewInclude<ExtArgs> | null
-  where?: Prisma.ReviewWhereInput
-}
-
-/**
  * Booking.notifications
  */
 export type Booking$notificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2058,6 +2039,25 @@ export type Booking$notificationsArgs<ExtArgs extends runtime.Types.Extensions.I
   take?: number
   skip?: number
   distinct?: Prisma.NotificationScalarFieldEnum | Prisma.NotificationScalarFieldEnum[]
+}
+
+/**
+ * Booking.review
+ */
+export type Booking$reviewArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Review
+   */
+  select?: Prisma.ReviewSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Review
+   */
+  omit?: Prisma.ReviewOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ReviewInclude<ExtArgs> | null
+  where?: Prisma.ReviewWhereInput
 }
 
 /**

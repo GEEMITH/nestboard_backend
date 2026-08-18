@@ -301,10 +301,10 @@ export type PropertyWhereInput = {
   isActive?: Prisma.BoolFilter<"Property"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Property"> | Date | string
   favoritedBy?: Prisma.FavoriteListRelationFilter
-  vendor?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  roomTypes?: Prisma.RoomTypeListRelationFilter
-  reviews?: Prisma.ReviewListRelationFilter
   notifications?: Prisma.NotificationListRelationFilter
+  vendor?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  reviews?: Prisma.ReviewListRelationFilter
+  roomTypes?: Prisma.RoomTypeListRelationFilter
 }
 
 export type PropertyOrderByWithRelationInput = {
@@ -324,10 +324,10 @@ export type PropertyOrderByWithRelationInput = {
   isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   favoritedBy?: Prisma.FavoriteOrderByRelationAggregateInput
-  vendor?: Prisma.UserOrderByWithRelationInput
-  roomTypes?: Prisma.RoomTypeOrderByRelationAggregateInput
-  reviews?: Prisma.ReviewOrderByRelationAggregateInput
   notifications?: Prisma.NotificationOrderByRelationAggregateInput
+  vendor?: Prisma.UserOrderByWithRelationInput
+  reviews?: Prisma.ReviewOrderByRelationAggregateInput
+  roomTypes?: Prisma.RoomTypeOrderByRelationAggregateInput
 }
 
 export type PropertyWhereUniqueInput = Prisma.AtLeast<{
@@ -350,10 +350,10 @@ export type PropertyWhereUniqueInput = Prisma.AtLeast<{
   isActive?: Prisma.BoolFilter<"Property"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Property"> | Date | string
   favoritedBy?: Prisma.FavoriteListRelationFilter
-  vendor?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  roomTypes?: Prisma.RoomTypeListRelationFilter
-  reviews?: Prisma.ReviewListRelationFilter
   notifications?: Prisma.NotificationListRelationFilter
+  vendor?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  reviews?: Prisma.ReviewListRelationFilter
+  roomTypes?: Prisma.RoomTypeListRelationFilter
 }, "id">
 
 export type PropertyOrderByWithAggregationInput = {
@@ -416,10 +416,10 @@ export type PropertyCreateInput = {
   isActive?: boolean
   createdAt?: Date | string
   favoritedBy?: Prisma.FavoriteCreateNestedManyWithoutPropertyInput
-  vendor: Prisma.UserCreateNestedOneWithoutPropertiesInput
-  roomTypes?: Prisma.RoomTypeCreateNestedManyWithoutPropertyInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutPropertyInput
   notifications?: Prisma.NotificationCreateNestedManyWithoutPropertyInput
+  vendor: Prisma.UserCreateNestedOneWithoutPropertiesInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutPropertyInput
+  roomTypes?: Prisma.RoomTypeCreateNestedManyWithoutPropertyInput
 }
 
 export type PropertyUncheckedCreateInput = {
@@ -439,9 +439,9 @@ export type PropertyUncheckedCreateInput = {
   isActive?: boolean
   createdAt?: Date | string
   favoritedBy?: Prisma.FavoriteUncheckedCreateNestedManyWithoutPropertyInput
-  roomTypes?: Prisma.RoomTypeUncheckedCreateNestedManyWithoutPropertyInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutPropertyInput
   notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutPropertyInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutPropertyInput
+  roomTypes?: Prisma.RoomTypeUncheckedCreateNestedManyWithoutPropertyInput
 }
 
 export type PropertyUpdateInput = {
@@ -460,10 +460,10 @@ export type PropertyUpdateInput = {
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   favoritedBy?: Prisma.FavoriteUpdateManyWithoutPropertyNestedInput
-  vendor?: Prisma.UserUpdateOneRequiredWithoutPropertiesNestedInput
-  roomTypes?: Prisma.RoomTypeUpdateManyWithoutPropertyNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutPropertyNestedInput
   notifications?: Prisma.NotificationUpdateManyWithoutPropertyNestedInput
+  vendor?: Prisma.UserUpdateOneRequiredWithoutPropertiesNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutPropertyNestedInput
+  roomTypes?: Prisma.RoomTypeUpdateManyWithoutPropertyNestedInput
 }
 
 export type PropertyUncheckedUpdateInput = {
@@ -483,9 +483,9 @@ export type PropertyUncheckedUpdateInput = {
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   favoritedBy?: Prisma.FavoriteUncheckedUpdateManyWithoutPropertyNestedInput
-  roomTypes?: Prisma.RoomTypeUncheckedUpdateManyWithoutPropertyNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutPropertyNestedInput
   notifications?: Prisma.NotificationUncheckedUpdateManyWithoutPropertyNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutPropertyNestedInput
+  roomTypes?: Prisma.RoomTypeUncheckedUpdateManyWithoutPropertyNestedInput
 }
 
 export type PropertyCreateManyInput = {
@@ -782,9 +782,9 @@ export type PropertyCreateWithoutVendorInput = {
   isActive?: boolean
   createdAt?: Date | string
   favoritedBy?: Prisma.FavoriteCreateNestedManyWithoutPropertyInput
-  roomTypes?: Prisma.RoomTypeCreateNestedManyWithoutPropertyInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutPropertyInput
   notifications?: Prisma.NotificationCreateNestedManyWithoutPropertyInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutPropertyInput
+  roomTypes?: Prisma.RoomTypeCreateNestedManyWithoutPropertyInput
 }
 
 export type PropertyUncheckedCreateWithoutVendorInput = {
@@ -803,9 +803,9 @@ export type PropertyUncheckedCreateWithoutVendorInput = {
   isActive?: boolean
   createdAt?: Date | string
   favoritedBy?: Prisma.FavoriteUncheckedCreateNestedManyWithoutPropertyInput
-  roomTypes?: Prisma.RoomTypeUncheckedCreateNestedManyWithoutPropertyInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutPropertyInput
   notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutPropertyInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutPropertyInput
+  roomTypes?: Prisma.RoomTypeUncheckedCreateNestedManyWithoutPropertyInput
 }
 
 export type PropertyCreateOrConnectWithoutVendorInput = {
@@ -871,9 +871,9 @@ export type PropertyCreateWithoutRoomTypesInput = {
   isActive?: boolean
   createdAt?: Date | string
   favoritedBy?: Prisma.FavoriteCreateNestedManyWithoutPropertyInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutPropertyInput
   vendor: Prisma.UserCreateNestedOneWithoutPropertiesInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutPropertyInput
-  notifications?: Prisma.NotificationCreateNestedManyWithoutPropertyInput
 }
 
 export type PropertyUncheckedCreateWithoutRoomTypesInput = {
@@ -893,8 +893,8 @@ export type PropertyUncheckedCreateWithoutRoomTypesInput = {
   isActive?: boolean
   createdAt?: Date | string
   favoritedBy?: Prisma.FavoriteUncheckedCreateNestedManyWithoutPropertyInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutPropertyInput
   notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutPropertyInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutPropertyInput
 }
 
 export type PropertyCreateOrConnectWithoutRoomTypesInput = {
@@ -929,9 +929,9 @@ export type PropertyUpdateWithoutRoomTypesInput = {
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   favoritedBy?: Prisma.FavoriteUpdateManyWithoutPropertyNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutPropertyNestedInput
   vendor?: Prisma.UserUpdateOneRequiredWithoutPropertiesNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutPropertyNestedInput
-  notifications?: Prisma.NotificationUpdateManyWithoutPropertyNestedInput
 }
 
 export type PropertyUncheckedUpdateWithoutRoomTypesInput = {
@@ -951,8 +951,8 @@ export type PropertyUncheckedUpdateWithoutRoomTypesInput = {
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   favoritedBy?: Prisma.FavoriteUncheckedUpdateManyWithoutPropertyNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutPropertyNestedInput
   notifications?: Prisma.NotificationUncheckedUpdateManyWithoutPropertyNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutPropertyNestedInput
 }
 
 export type PropertyCreateWithoutFavoritedByInput = {
@@ -970,10 +970,10 @@ export type PropertyCreateWithoutFavoritedByInput = {
   minStay?: string
   isActive?: boolean
   createdAt?: Date | string
-  vendor: Prisma.UserCreateNestedOneWithoutPropertiesInput
-  roomTypes?: Prisma.RoomTypeCreateNestedManyWithoutPropertyInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutPropertyInput
   notifications?: Prisma.NotificationCreateNestedManyWithoutPropertyInput
+  vendor: Prisma.UserCreateNestedOneWithoutPropertiesInput
+  reviews?: Prisma.ReviewCreateNestedManyWithoutPropertyInput
+  roomTypes?: Prisma.RoomTypeCreateNestedManyWithoutPropertyInput
 }
 
 export type PropertyUncheckedCreateWithoutFavoritedByInput = {
@@ -992,9 +992,9 @@ export type PropertyUncheckedCreateWithoutFavoritedByInput = {
   minStay?: string
   isActive?: boolean
   createdAt?: Date | string
-  roomTypes?: Prisma.RoomTypeUncheckedCreateNestedManyWithoutPropertyInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutPropertyInput
   notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutPropertyInput
+  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutPropertyInput
+  roomTypes?: Prisma.RoomTypeUncheckedCreateNestedManyWithoutPropertyInput
 }
 
 export type PropertyCreateOrConnectWithoutFavoritedByInput = {
@@ -1028,10 +1028,10 @@ export type PropertyUpdateWithoutFavoritedByInput = {
   minStay?: Prisma.StringFieldUpdateOperationsInput | string
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  vendor?: Prisma.UserUpdateOneRequiredWithoutPropertiesNestedInput
-  roomTypes?: Prisma.RoomTypeUpdateManyWithoutPropertyNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutPropertyNestedInput
   notifications?: Prisma.NotificationUpdateManyWithoutPropertyNestedInput
+  vendor?: Prisma.UserUpdateOneRequiredWithoutPropertiesNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutPropertyNestedInput
+  roomTypes?: Prisma.RoomTypeUpdateManyWithoutPropertyNestedInput
 }
 
 export type PropertyUncheckedUpdateWithoutFavoritedByInput = {
@@ -1050,9 +1050,9 @@ export type PropertyUncheckedUpdateWithoutFavoritedByInput = {
   minStay?: Prisma.StringFieldUpdateOperationsInput | string
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  roomTypes?: Prisma.RoomTypeUncheckedUpdateManyWithoutPropertyNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutPropertyNestedInput
   notifications?: Prisma.NotificationUncheckedUpdateManyWithoutPropertyNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutPropertyNestedInput
+  roomTypes?: Prisma.RoomTypeUncheckedUpdateManyWithoutPropertyNestedInput
 }
 
 export type PropertyCreateWithoutReviewsInput = {
@@ -1071,9 +1071,9 @@ export type PropertyCreateWithoutReviewsInput = {
   isActive?: boolean
   createdAt?: Date | string
   favoritedBy?: Prisma.FavoriteCreateNestedManyWithoutPropertyInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutPropertyInput
   vendor: Prisma.UserCreateNestedOneWithoutPropertiesInput
   roomTypes?: Prisma.RoomTypeCreateNestedManyWithoutPropertyInput
-  notifications?: Prisma.NotificationCreateNestedManyWithoutPropertyInput
 }
 
 export type PropertyUncheckedCreateWithoutReviewsInput = {
@@ -1093,8 +1093,8 @@ export type PropertyUncheckedCreateWithoutReviewsInput = {
   isActive?: boolean
   createdAt?: Date | string
   favoritedBy?: Prisma.FavoriteUncheckedCreateNestedManyWithoutPropertyInput
-  roomTypes?: Prisma.RoomTypeUncheckedCreateNestedManyWithoutPropertyInput
   notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutPropertyInput
+  roomTypes?: Prisma.RoomTypeUncheckedCreateNestedManyWithoutPropertyInput
 }
 
 export type PropertyCreateOrConnectWithoutReviewsInput = {
@@ -1129,9 +1129,9 @@ export type PropertyUpdateWithoutReviewsInput = {
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   favoritedBy?: Prisma.FavoriteUpdateManyWithoutPropertyNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutPropertyNestedInput
   vendor?: Prisma.UserUpdateOneRequiredWithoutPropertiesNestedInput
   roomTypes?: Prisma.RoomTypeUpdateManyWithoutPropertyNestedInput
-  notifications?: Prisma.NotificationUpdateManyWithoutPropertyNestedInput
 }
 
 export type PropertyUncheckedUpdateWithoutReviewsInput = {
@@ -1151,8 +1151,8 @@ export type PropertyUncheckedUpdateWithoutReviewsInput = {
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   favoritedBy?: Prisma.FavoriteUncheckedUpdateManyWithoutPropertyNestedInput
-  roomTypes?: Prisma.RoomTypeUncheckedUpdateManyWithoutPropertyNestedInput
   notifications?: Prisma.NotificationUncheckedUpdateManyWithoutPropertyNestedInput
+  roomTypes?: Prisma.RoomTypeUncheckedUpdateManyWithoutPropertyNestedInput
 }
 
 export type PropertyCreateWithoutNotificationsInput = {
@@ -1172,8 +1172,8 @@ export type PropertyCreateWithoutNotificationsInput = {
   createdAt?: Date | string
   favoritedBy?: Prisma.FavoriteCreateNestedManyWithoutPropertyInput
   vendor: Prisma.UserCreateNestedOneWithoutPropertiesInput
-  roomTypes?: Prisma.RoomTypeCreateNestedManyWithoutPropertyInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutPropertyInput
+  roomTypes?: Prisma.RoomTypeCreateNestedManyWithoutPropertyInput
 }
 
 export type PropertyUncheckedCreateWithoutNotificationsInput = {
@@ -1193,8 +1193,8 @@ export type PropertyUncheckedCreateWithoutNotificationsInput = {
   isActive?: boolean
   createdAt?: Date | string
   favoritedBy?: Prisma.FavoriteUncheckedCreateNestedManyWithoutPropertyInput
-  roomTypes?: Prisma.RoomTypeUncheckedCreateNestedManyWithoutPropertyInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutPropertyInput
+  roomTypes?: Prisma.RoomTypeUncheckedCreateNestedManyWithoutPropertyInput
 }
 
 export type PropertyCreateOrConnectWithoutNotificationsInput = {
@@ -1230,8 +1230,8 @@ export type PropertyUpdateWithoutNotificationsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   favoritedBy?: Prisma.FavoriteUpdateManyWithoutPropertyNestedInput
   vendor?: Prisma.UserUpdateOneRequiredWithoutPropertiesNestedInput
-  roomTypes?: Prisma.RoomTypeUpdateManyWithoutPropertyNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutPropertyNestedInput
+  roomTypes?: Prisma.RoomTypeUpdateManyWithoutPropertyNestedInput
 }
 
 export type PropertyUncheckedUpdateWithoutNotificationsInput = {
@@ -1251,8 +1251,8 @@ export type PropertyUncheckedUpdateWithoutNotificationsInput = {
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   favoritedBy?: Prisma.FavoriteUncheckedUpdateManyWithoutPropertyNestedInput
-  roomTypes?: Prisma.RoomTypeUncheckedUpdateManyWithoutPropertyNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutPropertyNestedInput
+  roomTypes?: Prisma.RoomTypeUncheckedUpdateManyWithoutPropertyNestedInput
 }
 
 export type PropertyCreateManyVendorInput = {
@@ -1288,9 +1288,9 @@ export type PropertyUpdateWithoutVendorInput = {
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   favoritedBy?: Prisma.FavoriteUpdateManyWithoutPropertyNestedInput
-  roomTypes?: Prisma.RoomTypeUpdateManyWithoutPropertyNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutPropertyNestedInput
   notifications?: Prisma.NotificationUpdateManyWithoutPropertyNestedInput
+  reviews?: Prisma.ReviewUpdateManyWithoutPropertyNestedInput
+  roomTypes?: Prisma.RoomTypeUpdateManyWithoutPropertyNestedInput
 }
 
 export type PropertyUncheckedUpdateWithoutVendorInput = {
@@ -1309,9 +1309,9 @@ export type PropertyUncheckedUpdateWithoutVendorInput = {
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   favoritedBy?: Prisma.FavoriteUncheckedUpdateManyWithoutPropertyNestedInput
-  roomTypes?: Prisma.RoomTypeUncheckedUpdateManyWithoutPropertyNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutPropertyNestedInput
   notifications?: Prisma.NotificationUncheckedUpdateManyWithoutPropertyNestedInput
+  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutPropertyNestedInput
+  roomTypes?: Prisma.RoomTypeUncheckedUpdateManyWithoutPropertyNestedInput
 }
 
 export type PropertyUncheckedUpdateManyWithoutVendorInput = {
@@ -1338,16 +1338,16 @@ export type PropertyUncheckedUpdateManyWithoutVendorInput = {
 
 export type PropertyCountOutputType = {
   favoritedBy: number
-  roomTypes: number
-  reviews: number
   notifications: number
+  reviews: number
+  roomTypes: number
 }
 
 export type PropertyCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   favoritedBy?: boolean | PropertyCountOutputTypeCountFavoritedByArgs
-  roomTypes?: boolean | PropertyCountOutputTypeCountRoomTypesArgs
-  reviews?: boolean | PropertyCountOutputTypeCountReviewsArgs
   notifications?: boolean | PropertyCountOutputTypeCountNotificationsArgs
+  reviews?: boolean | PropertyCountOutputTypeCountReviewsArgs
+  roomTypes?: boolean | PropertyCountOutputTypeCountRoomTypesArgs
 }
 
 /**
@@ -1370,8 +1370,8 @@ export type PropertyCountOutputTypeCountFavoritedByArgs<ExtArgs extends runtime.
 /**
  * PropertyCountOutputType without action
  */
-export type PropertyCountOutputTypeCountRoomTypesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.RoomTypeWhereInput
+export type PropertyCountOutputTypeCountNotificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.NotificationWhereInput
 }
 
 /**
@@ -1384,8 +1384,8 @@ export type PropertyCountOutputTypeCountReviewsArgs<ExtArgs extends runtime.Type
 /**
  * PropertyCountOutputType without action
  */
-export type PropertyCountOutputTypeCountNotificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.NotificationWhereInput
+export type PropertyCountOutputTypeCountRoomTypesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.RoomTypeWhereInput
 }
 
 
@@ -1406,10 +1406,10 @@ export type PropertySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   isActive?: boolean
   createdAt?: boolean
   favoritedBy?: boolean | Prisma.Property$favoritedByArgs<ExtArgs>
-  vendor?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  roomTypes?: boolean | Prisma.Property$roomTypesArgs<ExtArgs>
-  reviews?: boolean | Prisma.Property$reviewsArgs<ExtArgs>
   notifications?: boolean | Prisma.Property$notificationsArgs<ExtArgs>
+  vendor?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  reviews?: boolean | Prisma.Property$reviewsArgs<ExtArgs>
+  roomTypes?: boolean | Prisma.Property$roomTypesArgs<ExtArgs>
   _count?: boolean | Prisma.PropertyCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["property"]>
 
@@ -1472,10 +1472,10 @@ export type PropertySelectScalar = {
 export type PropertyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "vendorId" | "title" | "description" | "address" | "city" | "type" | "rating" | "amenities" | "latitude" | "longitude" | "imageUrl" | "minStay" | "isActive" | "createdAt", ExtArgs["result"]["property"]>
 export type PropertyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   favoritedBy?: boolean | Prisma.Property$favoritedByArgs<ExtArgs>
-  vendor?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  roomTypes?: boolean | Prisma.Property$roomTypesArgs<ExtArgs>
-  reviews?: boolean | Prisma.Property$reviewsArgs<ExtArgs>
   notifications?: boolean | Prisma.Property$notificationsArgs<ExtArgs>
+  vendor?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  reviews?: boolean | Prisma.Property$reviewsArgs<ExtArgs>
+  roomTypes?: boolean | Prisma.Property$roomTypesArgs<ExtArgs>
   _count?: boolean | Prisma.PropertyCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PropertyIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1489,10 +1489,10 @@ export type $PropertyPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   name: "Property"
   objects: {
     favoritedBy: Prisma.$FavoritePayload<ExtArgs>[]
-    vendor: Prisma.$UserPayload<ExtArgs>
-    roomTypes: Prisma.$RoomTypePayload<ExtArgs>[]
-    reviews: Prisma.$ReviewPayload<ExtArgs>[]
     notifications: Prisma.$NotificationPayload<ExtArgs>[]
+    vendor: Prisma.$UserPayload<ExtArgs>
+    reviews: Prisma.$ReviewPayload<ExtArgs>[]
+    roomTypes: Prisma.$RoomTypePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1905,10 +1905,10 @@ readonly fields: PropertyFieldRefs;
 export interface Prisma__PropertyClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   favoritedBy<T extends Prisma.Property$favoritedByArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Property$favoritedByArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  vendor<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  roomTypes<T extends Prisma.Property$roomTypesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Property$roomTypesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RoomTypePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  reviews<T extends Prisma.Property$reviewsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Property$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   notifications<T extends Prisma.Property$notificationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Property$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  vendor<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  reviews<T extends Prisma.Property$reviewsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Property$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  roomTypes<T extends Prisma.Property$roomTypesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Property$roomTypesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RoomTypePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2378,27 +2378,27 @@ export type Property$favoritedByArgs<ExtArgs extends runtime.Types.Extensions.In
 }
 
 /**
- * Property.roomTypes
+ * Property.notifications
  */
-export type Property$roomTypesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Property$notificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the RoomType
+   * Select specific fields to fetch from the Notification
    */
-  select?: Prisma.RoomTypeSelect<ExtArgs> | null
+  select?: Prisma.NotificationSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the RoomType
+   * Omit specific fields from the Notification
    */
-  omit?: Prisma.RoomTypeOmit<ExtArgs> | null
+  omit?: Prisma.NotificationOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.RoomTypeInclude<ExtArgs> | null
-  where?: Prisma.RoomTypeWhereInput
-  orderBy?: Prisma.RoomTypeOrderByWithRelationInput | Prisma.RoomTypeOrderByWithRelationInput[]
-  cursor?: Prisma.RoomTypeWhereUniqueInput
+  include?: Prisma.NotificationInclude<ExtArgs> | null
+  where?: Prisma.NotificationWhereInput
+  orderBy?: Prisma.NotificationOrderByWithRelationInput | Prisma.NotificationOrderByWithRelationInput[]
+  cursor?: Prisma.NotificationWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.RoomTypeScalarFieldEnum | Prisma.RoomTypeScalarFieldEnum[]
+  distinct?: Prisma.NotificationScalarFieldEnum | Prisma.NotificationScalarFieldEnum[]
 }
 
 /**
@@ -2426,27 +2426,27 @@ export type Property$reviewsArgs<ExtArgs extends runtime.Types.Extensions.Intern
 }
 
 /**
- * Property.notifications
+ * Property.roomTypes
  */
-export type Property$notificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Property$roomTypesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Notification
+   * Select specific fields to fetch from the RoomType
    */
-  select?: Prisma.NotificationSelect<ExtArgs> | null
+  select?: Prisma.RoomTypeSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Notification
+   * Omit specific fields from the RoomType
    */
-  omit?: Prisma.NotificationOmit<ExtArgs> | null
+  omit?: Prisma.RoomTypeOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.NotificationInclude<ExtArgs> | null
-  where?: Prisma.NotificationWhereInput
-  orderBy?: Prisma.NotificationOrderByWithRelationInput | Prisma.NotificationOrderByWithRelationInput[]
-  cursor?: Prisma.NotificationWhereUniqueInput
+  include?: Prisma.RoomTypeInclude<ExtArgs> | null
+  where?: Prisma.RoomTypeWhereInput
+  orderBy?: Prisma.RoomTypeOrderByWithRelationInput | Prisma.RoomTypeOrderByWithRelationInput[]
+  cursor?: Prisma.RoomTypeWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.NotificationScalarFieldEnum | Prisma.NotificationScalarFieldEnum[]
+  distinct?: Prisma.RoomTypeScalarFieldEnum | Prisma.RoomTypeScalarFieldEnum[]
 }
 
 /**
