@@ -11,7 +11,7 @@ import { corsOrigins, env } from "./lib/env.js";
 import { bookingsRouter } from "./routes/bookings.js";
 import { uploadsRouter } from "./routes/uploads.js";
 import path from "node:path";
-import rateLimit from "express-rate-limit";
+import { rateLimit } from "express-rate-limit";
 import { reviewsRouter } from "./routes/reviews.js";
 import {
   notificationsRouter,
