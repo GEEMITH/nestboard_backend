@@ -1,4 +1,4 @@
-import { buildApp } from "../src/app";
+import { buildApp } from "./dist/app.js";
 
 const app = buildApp();
 
