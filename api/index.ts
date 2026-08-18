@@ -6,6 +6,6 @@ const app = buildApp();
 export default function handler(
   req: VercelRequest,
   res: VercelResponse,
-) {
-  return app(req, res);
+): void {
+  app(req, res);
 }
