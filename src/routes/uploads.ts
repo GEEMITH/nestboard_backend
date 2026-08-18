@@ -1,50 +1,33 @@
-import {
-  Router,
-} from "express"
-
+import { Router } from "express"
 import multer from "multer"
-
 import path from "node:path"
-
 import fs from "node:fs"
+import { randomUUID } from "node:crypto"
 
-import {
-  randomUUID,
-} from "node:crypto"
-
-import {
-  Role,
-} from "../generated/enums.js"
+import { Role } from "../generated/enums.js"
 
 import {
   verifyJwt,
   requireRole,
 } from "../middleware/auth.js"
 
-import {
-  env,
-} from "../lib/env.js"
+import { env } from "../lib/env.js"
 
-import {
-  Errors,
-} from "../lib/errors.js"
+import { Errors } from "../lib/errors.js"
 
-import {
-  uploadToR2,
-} from "../lib/storage.js"
+import { uploadToR2 } from "../lib/storage.js"
 
-export const uploadsRouter =
-  Router()
+export const uploadsRouter = Router()
 
 const useR2 =
   env.UPLOAD_PROVIDER === "r2"
 
-const localUploadDirectory =
-  path.resolve(
-    env.UPLOAD_LOCAL_DIR
-  )
+let localUploadDirectory: string | undefined
 
 if (!useR2) {
+  localUploadDirectory =
+    path.resolve(env.UPLOAD_LOCAL_DIR)
+
   fs.mkdirSync(
     localUploadDirectory,
     {
@@ -63,7 +46,7 @@ const storage = useR2
       ) => {
         callback(
           null,
-          localUploadDirectory
+          localUploadDirectory!
         )
       },
 
