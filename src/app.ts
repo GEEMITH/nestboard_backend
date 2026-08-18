@@ -1,4 +1,10 @@
-import express, { type Express } from "express";
+import express, {
+  type Express,
+  type RequestHandler,
+} from "express";
+
+import { createRequire } from "node:module";
+import path from "node:path";
 
 import { healthRouter } from "./routes/health.js";
 import { propertiesRouter } from "./routes/properties.js";
@@ -6,32 +12,26 @@ import { pinoHttp } from "pino-http";
 import { logger } from "./lib/logger.js";
 import { errorHandler } from "./middleware/error-handler.js";
 import { authRouter } from "./routes/auth.js";
-
-import * as helmetModule from "helmet";
-
 import cors from "cors";
 import { corsOrigins, env } from "./lib/env.js";
-
 import { bookingsRouter } from "./routes/bookings.js";
 import { uploadsRouter } from "./routes/uploads.js";
-
-import path from "node:path";
-
 import { rateLimit } from "express-rate-limit";
-
 import { reviewsRouter } from "./routes/reviews.js";
 import { notificationsRouter } from "./routes/notifications.js";
 
-const helmet = helmetModule.default;
+const require = createRequire(import.meta.url);
+
+const helmet = require("helmet") as (options?: unknown) => RequestHandler;
 
 export function buildApp(): Express {
   const app = express();
 
   // Behind a reverse proxy.
-  // Required so express-rate-limit can correctly determine the client IP.
+  // Required for correct client IP handling by express-rate-limit.
   app.set("trust proxy", 1);
 
-  // Logging
+  // HTTP logging
   app.use(pinoHttp({ logger }));
 
   // Security headers
