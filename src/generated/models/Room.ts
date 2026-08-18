@@ -26,52 +26,52 @@ export type AggregateRoom = {
 
 export type RoomMinAggregateOutputType = {
   id: string | null
+  createdAt: Date | null
   roomTypeId: string | null
   roomLabel: string | null
   isAvailable: boolean | null
-  createdAt: Date | null
 }
 
 export type RoomMaxAggregateOutputType = {
   id: string | null
+  createdAt: Date | null
   roomTypeId: string | null
   roomLabel: string | null
   isAvailable: boolean | null
-  createdAt: Date | null
 }
 
 export type RoomCountAggregateOutputType = {
   id: number
+  createdAt: number
   roomTypeId: number
   roomLabel: number
   isAvailable: number
-  createdAt: number
   _all: number
 }
 
 
 export type RoomMinAggregateInputType = {
   id?: true
+  createdAt?: true
   roomTypeId?: true
   roomLabel?: true
   isAvailable?: true
-  createdAt?: true
 }
 
 export type RoomMaxAggregateInputType = {
   id?: true
+  createdAt?: true
   roomTypeId?: true
   roomLabel?: true
   isAvailable?: true
-  createdAt?: true
 }
 
 export type RoomCountAggregateInputType = {
   id?: true
+  createdAt?: true
   roomTypeId?: true
   roomLabel?: true
   isAvailable?: true
-  createdAt?: true
   _all?: true
 }
 
@@ -149,10 +149,10 @@ export type RoomGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 
 export type RoomGroupByOutputType = {
   id: string
+  createdAt: Date
   roomTypeId: string
   roomLabel: string
   isAvailable: boolean
-  createdAt: Date
   _count: RoomCountAggregateOutputType | null
   _min: RoomMinAggregateOutputType | null
   _max: RoomMaxAggregateOutputType | null
@@ -178,22 +178,22 @@ export type RoomWhereInput = {
   OR?: Prisma.RoomWhereInput[]
   NOT?: Prisma.RoomWhereInput | Prisma.RoomWhereInput[]
   id?: Prisma.UuidFilter<"Room"> | string
+  createdAt?: Prisma.DateTimeFilter<"Room"> | Date | string
   roomTypeId?: Prisma.UuidFilter<"Room"> | string
   roomLabel?: Prisma.StringFilter<"Room"> | string
   isAvailable?: Prisma.BoolFilter<"Room"> | boolean
-  createdAt?: Prisma.DateTimeFilter<"Room"> | Date | string
-  roomType?: Prisma.XOR<Prisma.RoomTypeScalarRelationFilter, Prisma.RoomTypeWhereInput>
   bookings?: Prisma.BookingListRelationFilter
+  roomType?: Prisma.XOR<Prisma.RoomTypeScalarRelationFilter, Prisma.RoomTypeWhereInput>
 }
 
 export type RoomOrderByWithRelationInput = {
   id?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   roomTypeId?: Prisma.SortOrder
   roomLabel?: Prisma.SortOrder
   isAvailable?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  roomType?: Prisma.RoomTypeOrderByWithRelationInput
   bookings?: Prisma.BookingOrderByRelationAggregateInput
+  roomType?: Prisma.RoomTypeOrderByWithRelationInput
 }
 
 export type RoomWhereUniqueInput = Prisma.AtLeast<{
@@ -201,20 +201,20 @@ export type RoomWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.RoomWhereInput | Prisma.RoomWhereInput[]
   OR?: Prisma.RoomWhereInput[]
   NOT?: Prisma.RoomWhereInput | Prisma.RoomWhereInput[]
+  createdAt?: Prisma.DateTimeFilter<"Room"> | Date | string
   roomTypeId?: Prisma.UuidFilter<"Room"> | string
   roomLabel?: Prisma.StringFilter<"Room"> | string
   isAvailable?: Prisma.BoolFilter<"Room"> | boolean
-  createdAt?: Prisma.DateTimeFilter<"Room"> | Date | string
-  roomType?: Prisma.XOR<Prisma.RoomTypeScalarRelationFilter, Prisma.RoomTypeWhereInput>
   bookings?: Prisma.BookingListRelationFilter
+  roomType?: Prisma.XOR<Prisma.RoomTypeScalarRelationFilter, Prisma.RoomTypeWhereInput>
 }, "id">
 
 export type RoomOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   roomTypeId?: Prisma.SortOrder
   roomLabel?: Prisma.SortOrder
   isAvailable?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
   _count?: Prisma.RoomCountOrderByAggregateInput
   _max?: Prisma.RoomMaxOrderByAggregateInput
   _min?: Prisma.RoomMinOrderByAggregateInput
@@ -225,69 +225,69 @@ export type RoomScalarWhereWithAggregatesInput = {
   OR?: Prisma.RoomScalarWhereWithAggregatesInput[]
   NOT?: Prisma.RoomScalarWhereWithAggregatesInput | Prisma.RoomScalarWhereWithAggregatesInput[]
   id?: Prisma.UuidWithAggregatesFilter<"Room"> | string
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Room"> | Date | string
   roomTypeId?: Prisma.UuidWithAggregatesFilter<"Room"> | string
   roomLabel?: Prisma.StringWithAggregatesFilter<"Room"> | string
   isAvailable?: Prisma.BoolWithAggregatesFilter<"Room"> | boolean
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Room"> | Date | string
 }
 
 export type RoomCreateInput = {
   id?: string
+  createdAt?: Date | string
   roomLabel: string
   isAvailable?: boolean
-  createdAt?: Date | string
-  roomType: Prisma.RoomTypeCreateNestedOneWithoutRoomsInput
   bookings?: Prisma.BookingCreateNestedManyWithoutRoomInput
+  roomType: Prisma.RoomTypeCreateNestedOneWithoutRoomsInput
 }
 
 export type RoomUncheckedCreateInput = {
   id?: string
+  createdAt?: Date | string
   roomTypeId: string
   roomLabel: string
   isAvailable?: boolean
-  createdAt?: Date | string
   bookings?: Prisma.BookingUncheckedCreateNestedManyWithoutRoomInput
 }
 
 export type RoomUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roomLabel?: Prisma.StringFieldUpdateOperationsInput | string
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  roomType?: Prisma.RoomTypeUpdateOneRequiredWithoutRoomsNestedInput
   bookings?: Prisma.BookingUpdateManyWithoutRoomNestedInput
+  roomType?: Prisma.RoomTypeUpdateOneRequiredWithoutRoomsNestedInput
 }
 
 export type RoomUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roomTypeId?: Prisma.StringFieldUpdateOperationsInput | string
   roomLabel?: Prisma.StringFieldUpdateOperationsInput | string
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   bookings?: Prisma.BookingUncheckedUpdateManyWithoutRoomNestedInput
 }
 
 export type RoomCreateManyInput = {
   id?: string
+  createdAt?: Date | string
   roomTypeId: string
   roomLabel: string
   isAvailable?: boolean
-  createdAt?: Date | string
 }
 
 export type RoomUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roomLabel?: Prisma.StringFieldUpdateOperationsInput | string
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type RoomUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roomTypeId?: Prisma.StringFieldUpdateOperationsInput | string
   roomLabel?: Prisma.StringFieldUpdateOperationsInput | string
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type RoomListRelationFilter = {
@@ -302,26 +302,26 @@ export type RoomOrderByRelationAggregateInput = {
 
 export type RoomCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   roomTypeId?: Prisma.SortOrder
   roomLabel?: Prisma.SortOrder
   isAvailable?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
 }
 
 export type RoomMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   roomTypeId?: Prisma.SortOrder
   roomLabel?: Prisma.SortOrder
   isAvailable?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
 }
 
 export type RoomMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   roomTypeId?: Prisma.SortOrder
   roomLabel?: Prisma.SortOrder
   isAvailable?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
 }
 
 export type RoomScalarRelationFilter = {
@@ -387,17 +387,17 @@ export type RoomUpdateOneRequiredWithoutBookingsNestedInput = {
 
 export type RoomCreateWithoutRoomTypeInput = {
   id?: string
+  createdAt?: Date | string
   roomLabel: string
   isAvailable?: boolean
-  createdAt?: Date | string
   bookings?: Prisma.BookingCreateNestedManyWithoutRoomInput
 }
 
 export type RoomUncheckedCreateWithoutRoomTypeInput = {
   id?: string
+  createdAt?: Date | string
   roomLabel: string
   isAvailable?: boolean
-  createdAt?: Date | string
   bookings?: Prisma.BookingUncheckedCreateNestedManyWithoutRoomInput
 }
 
@@ -432,26 +432,26 @@ export type RoomScalarWhereInput = {
   OR?: Prisma.RoomScalarWhereInput[]
   NOT?: Prisma.RoomScalarWhereInput | Prisma.RoomScalarWhereInput[]
   id?: Prisma.UuidFilter<"Room"> | string
+  createdAt?: Prisma.DateTimeFilter<"Room"> | Date | string
   roomTypeId?: Prisma.UuidFilter<"Room"> | string
   roomLabel?: Prisma.StringFilter<"Room"> | string
   isAvailable?: Prisma.BoolFilter<"Room"> | boolean
-  createdAt?: Prisma.DateTimeFilter<"Room"> | Date | string
 }
 
 export type RoomCreateWithoutBookingsInput = {
   id?: string
+  createdAt?: Date | string
   roomLabel: string
   isAvailable?: boolean
-  createdAt?: Date | string
   roomType: Prisma.RoomTypeCreateNestedOneWithoutRoomsInput
 }
 
 export type RoomUncheckedCreateWithoutBookingsInput = {
   id?: string
+  createdAt?: Date | string
   roomTypeId: string
   roomLabel: string
   isAvailable?: boolean
-  createdAt?: Date | string
 }
 
 export type RoomCreateOrConnectWithoutBookingsInput = {
@@ -472,48 +472,48 @@ export type RoomUpdateToOneWithWhereWithoutBookingsInput = {
 
 export type RoomUpdateWithoutBookingsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roomLabel?: Prisma.StringFieldUpdateOperationsInput | string
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roomType?: Prisma.RoomTypeUpdateOneRequiredWithoutRoomsNestedInput
 }
 
 export type RoomUncheckedUpdateWithoutBookingsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roomTypeId?: Prisma.StringFieldUpdateOperationsInput | string
   roomLabel?: Prisma.StringFieldUpdateOperationsInput | string
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type RoomCreateManyRoomTypeInput = {
   id?: string
+  createdAt?: Date | string
   roomLabel: string
   isAvailable?: boolean
-  createdAt?: Date | string
 }
 
 export type RoomUpdateWithoutRoomTypeInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roomLabel?: Prisma.StringFieldUpdateOperationsInput | string
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   bookings?: Prisma.BookingUpdateManyWithoutRoomNestedInput
 }
 
 export type RoomUncheckedUpdateWithoutRoomTypeInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roomLabel?: Prisma.StringFieldUpdateOperationsInput | string
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   bookings?: Prisma.BookingUncheckedUpdateManyWithoutRoomNestedInput
 }
 
 export type RoomUncheckedUpdateManyWithoutRoomTypeInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   roomLabel?: Prisma.StringFieldUpdateOperationsInput | string
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -549,45 +549,45 @@ export type RoomCountOutputTypeCountBookingsArgs<ExtArgs extends runtime.Types.E
 
 export type RoomSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  createdAt?: boolean
   roomTypeId?: boolean
   roomLabel?: boolean
   isAvailable?: boolean
-  createdAt?: boolean
-  roomType?: boolean | Prisma.RoomTypeDefaultArgs<ExtArgs>
   bookings?: boolean | Prisma.Room$bookingsArgs<ExtArgs>
+  roomType?: boolean | Prisma.RoomTypeDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.RoomCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["room"]>
 
 export type RoomSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  createdAt?: boolean
   roomTypeId?: boolean
   roomLabel?: boolean
   isAvailable?: boolean
-  createdAt?: boolean
   roomType?: boolean | Prisma.RoomTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["room"]>
 
 export type RoomSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  createdAt?: boolean
   roomTypeId?: boolean
   roomLabel?: boolean
   isAvailable?: boolean
-  createdAt?: boolean
   roomType?: boolean | Prisma.RoomTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["room"]>
 
 export type RoomSelectScalar = {
   id?: boolean
+  createdAt?: boolean
   roomTypeId?: boolean
   roomLabel?: boolean
   isAvailable?: boolean
-  createdAt?: boolean
 }
 
-export type RoomOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "roomTypeId" | "roomLabel" | "isAvailable" | "createdAt", ExtArgs["result"]["room"]>
+export type RoomOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "createdAt" | "roomTypeId" | "roomLabel" | "isAvailable", ExtArgs["result"]["room"]>
 export type RoomInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  roomType?: boolean | Prisma.RoomTypeDefaultArgs<ExtArgs>
   bookings?: boolean | Prisma.Room$bookingsArgs<ExtArgs>
+  roomType?: boolean | Prisma.RoomTypeDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.RoomCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type RoomIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -600,15 +600,15 @@ export type RoomIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $RoomPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Room"
   objects: {
-    roomType: Prisma.$RoomTypePayload<ExtArgs>
     bookings: Prisma.$BookingPayload<ExtArgs>[]
+    roomType: Prisma.$RoomTypePayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
+    createdAt: Date
     roomTypeId: string
     roomLabel: string
     isAvailable: boolean
-    createdAt: Date
   }, ExtArgs["result"]["room"]>
   composites: {}
 }
@@ -1003,8 +1003,8 @@ readonly fields: RoomFieldRefs;
  */
 export interface Prisma__RoomClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  roomType<T extends Prisma.RoomTypeDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RoomTypeDefaultArgs<ExtArgs>>): Prisma.Prisma__RoomTypeClient<runtime.Types.Result.GetResult<Prisma.$RoomTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   bookings<T extends Prisma.Room$bookingsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Room$bookingsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  roomType<T extends Prisma.RoomTypeDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RoomTypeDefaultArgs<ExtArgs>>): Prisma.Prisma__RoomTypeClient<runtime.Types.Result.GetResult<Prisma.$RoomTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1035,10 +1035,10 @@ export interface Prisma__RoomClient<T, Null = never, ExtArgs extends runtime.Typ
  */
 export interface RoomFieldRefs {
   readonly id: Prisma.FieldRef<"Room", 'String'>
+  readonly createdAt: Prisma.FieldRef<"Room", 'DateTime'>
   readonly roomTypeId: Prisma.FieldRef<"Room", 'String'>
   readonly roomLabel: Prisma.FieldRef<"Room", 'String'>
   readonly isAvailable: Prisma.FieldRef<"Room", 'Boolean'>
-  readonly createdAt: Prisma.FieldRef<"Room", 'DateTime'>
 }
     
 
