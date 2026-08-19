@@ -1,39 +1,39 @@
-import { Router } from "express"
-import multer from "multer"
-import path from "node:path"
-import fs from "node:fs"
-import { randomUUID } from "node:crypto"
+import { Router } from "express";
+import multer from "multer";
+import path from "node:path";
+import fs from "node:fs";
+import { randomUUID } from "node:crypto";
 
-import { Role } from "../generated/enums.js"
+import { Role } from "../generated/enums.js";
 
 import {
   verifyJwt,
   requireRole,
-} from "../middleware/auth.js"
+} from "../middleware/auth.js";
 
-import { env } from "../lib/env.js"
+import { env } from "../lib/env.js";
+import { Errors } from "../lib/errors.js";
+import { uploadToR2 } from "../lib/storage.js";
 
-import { Errors } from "../lib/errors.js"
+export const uploadsRouter = Router();
 
-import { uploadToR2 } from "../lib/storage.js"
+const useR2 = env.UPLOAD_PROVIDER === "r2";
 
-export const uploadsRouter = Router()
+//
+// LOCAL STORAGE
+//
+// Only create/use the local directory when explicitly running
+// with UPLOAD_PROVIDER=local.
+//
+// Vercel production MUST use UPLOAD_PROVIDER=r2.
+//
+const localUploadDirectory =
+  path.resolve(env.UPLOAD_LOCAL_DIR);
 
-const useR2 =
-  env.UPLOAD_PROVIDER === "r2"
-
-let localUploadDirectory: string | undefined
-
-if (!useR2) {
-  localUploadDirectory =
-    path.resolve(env.UPLOAD_LOCAL_DIR)
-
-  fs.mkdirSync(
-    localUploadDirectory,
-    {
-      recursive: true,
-    }
-  )
+if (!useR2 && env.NODE_ENV !== "prod") {
+  fs.mkdirSync(localUploadDirectory, {
+    recursive: true,
+  });
 }
 
 const storage = useR2
@@ -42,70 +42,66 @@ const storage = useR2
       destination: (
         _req,
         _file,
-        callback
+        callback,
       ) => {
         callback(
           null,
-          localUploadDirectory!
-        )
+          localUploadDirectory,
+        );
       },
 
       filename: (
         _req,
         file,
-        callback
+        callback,
       ) => {
         const ext =
           path
-            .extname(
-              file.originalname
-            )
-            .toLowerCase()
+            .extname(file.originalname)
+            .toLowerCase();
 
         callback(
           null,
-          `${randomUUID()}${ext}`
-        )
+          `${randomUUID()}${ext}`,
+        );
       },
-    })
+    });
 
-const upload =
-  multer({
-    storage,
+const upload = multer({
+  storage,
 
-    limits: {
-      fileSize:
-        5 * 1024 * 1024,
-    },
+  limits: {
+    fileSize: 5 * 1024 * 1024,
+  },
 
-    fileFilter: (
-      _req,
-      file,
-      callback
-    ) => {
-      const allowed = [
-        "image/jpeg",
-        "image/png",
-        "image/webp",
-      ]
+  fileFilter: (
+    _req,
+    file,
+    callback,
+  ) => {
+    const allowed = [
+      "image/jpeg",
+      "image/png",
+      "image/webp",
+    ];
 
-      if (
-        !allowed.includes(
-          file.mimetype
-        )
-      ) {
-        callback(
-          Errors.validation(
-            "Only JPG, PNG and WEBP images are allowed"
-          ) as any
-        )
+    if (
+      !allowed.includes(
+        file.mimetype,
+      )
+    ) {
+      callback(
+        Errors.validation(
+          "Only JPG, PNG and WEBP images are allowed",
+        ) as any,
+      );
 
-        return
-      }
+      return;
+    }
 
-      callback(null, true)
-    },
-  })
+    callback(null, true);
+  },
+});
 
 uploadsRouter.post(
   "/cover-image",
@@ -119,49 +115,49 @@ uploadsRouter.post(
   async (
     req,
     res,
-    next
+    next,
   ) => {
     try {
       if (!req.file) {
         throw Errors.validation(
-          "No image was uploaded."
-        )
+          "No image was uploaded.",
+        );
       }
 
       if (useR2) {
         const ext =
           path
             .extname(
-              req.file.originalname
+              req.file.originalname,
             )
-            .toLowerCase()
+            .toLowerCase();
 
         const key =
-          `cover-images/${randomUUID()}${ext}`
+          `cover-images/${randomUUID()}${ext}`;
 
         const url =
           await uploadToR2(
             key,
             req.file.buffer,
-            req.file.mimetype
-          )
+            req.file.mimetype,
+          );
 
         res.status(201).json({
           url,
-        })
+        });
 
-        return
+        return;
       }
 
       res.status(201).json({
         url:
           `/uploads/${req.file.filename}`,
-      })
+      });
     } catch (error) {
-      next(error)
+      next(error);
     }
-  }
-)
+  },
+);
 
 uploadsRouter.post(
   "/profile-image",
@@ -173,46 +169,46 @@ uploadsRouter.post(
   async (
     req,
     res,
-    next
+    next,
   ) => {
     try {
       if (!req.file) {
         throw Errors.validation(
-          "No image was uploaded."
-        )
+          "No image was uploaded.",
+        );
       }
 
       if (useR2) {
         const ext =
           path
             .extname(
-              req.file.originalname
+              req.file.originalname,
             )
-            .toLowerCase()
+            .toLowerCase();
 
         const key =
-          `profile-images/${req.user!.id}/${randomUUID()}${ext}`
+          `profile-images/${req.user!.id}/${randomUUID()}${ext}`;
 
         const url =
           await uploadToR2(
             key,
             req.file.buffer,
-            req.file.mimetype
-          )
+            req.file.mimetype,
+          );
 
         res.status(201).json({
           url,
-        })
+        });
 
-        return
+        return;
       }
 
       res.status(201).json({
         url:
           `/uploads/${req.file.filename}`,
-      })
+      });
     } catch (error) {
-      next(error)
+      next(error);
     }
-  }
-)
+  },
+);
