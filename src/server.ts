@@ -7,7 +7,7 @@ const app = buildApp();
 
 const server = app.listen(
   env.PORT,
-  '0.0.0.0',
+  "0.0.0.0",
   () => {
     console.log(
       `Server running on port ${env.PORT}`,
@@ -15,21 +15,44 @@ const server = app.listen(
   },
 );
 
-async function shutdown(signal: string) {
-  logger.info({ signal }, "Shutting down gracefully");
+async function shutdown(
+  signal: string,
+) {
+  logger.info(
+    { signal },
+    "Shutting down gracefully",
+  );
+
   server.close(async (err) => {
     if (err) {
-      logger.error({ err }, "Error closing server");
+      logger.error(
+        { err },
+        "Error closing server",
+      );
+
       process.exit(1);
     }
+
     await prisma.$disconnect();
+
     process.exit(0);
   });
+
   setTimeout(() => {
-    logger.error("Forcing shutdown after 10s");
+    logger.error(
+      "Forcing shutdown after 10s",
+    );
+
     process.exit(1);
   }, 10_000).unref();
 }
 
-process.on("SIGTERM", () => void shutdown("SIGTERM"));
-process.on("SIGINT", () => void shutdown("SIGINT"));
+process.on(
+  "SIGTERM",
+  () => void shutdown("SIGTERM"),
+);
+
+process.on(
+  "SIGINT",
+  () => void shutdown("SIGINT"),
+);

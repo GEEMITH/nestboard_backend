@@ -4,7 +4,6 @@ import express, {
 } from "express";
 
 import { createRequire } from "node:module";
-import path from "node:path";
 
 import { healthRouter } from "./routes/health.js";
 import { propertiesRouter } from "./routes/properties.js";
@@ -22,22 +21,23 @@ import { notificationsRouter } from "./routes/notifications.js";
 
 const require = createRequire(import.meta.url);
 
-const helmet = require("helmet") as (options?: unknown) => RequestHandler;
+const helmet = require("helmet") as (
+  options?: unknown,
+) => RequestHandler;
 
 export function buildApp(): Express {
   const app = express();
 
-  // Behind a reverse proxy.
-  // Required for correct client IP handling by express-rate-limit.
   app.set("trust proxy", 1);
 
-  // HTTP logging
-  app.use(pinoHttp({ logger }));
+  app.use(
+    pinoHttp({
+      logger,
+    }),
+  );
 
-  // Security headers
   app.use(helmet());
 
-  // CORS
   app.use(
     cors({
       origin: corsOrigins,
@@ -45,14 +45,12 @@ export function buildApp(): Express {
     }),
   );
 
-  // JSON body parser
   app.use(
     express.json({
       limit: "1mb",
     }),
   );
 
-  // API rate limiting
   const apiLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
     limit: env.RATE_LIMIT,
@@ -62,39 +60,63 @@ export function buildApp(): Express {
 
   app.use("/api", apiLimiter);
 
-  // Health
-  app.use("/api/health", healthRouter);
-
-  // Properties
-  app.use("/api/properties", propertiesRouter);
-
-  // Authentication
-  app.use("/api/auth", authRouter);
-
-  // Bookings
-  app.use("/api/bookings", bookingsRouter);
-
-  // Reviews
-  app.use("/api", reviewsRouter);
-
-  // Uploads
-  app.use("/api/uploads", uploadsRouter);
-
-  // Notifications
-  app.use("/api/notifications", notificationsRouter);
-
-  // Local uploaded files
   app.use(
-    "/uploads",
-    express.static(path.resolve(env.UPLOAD_LOCAL_DIR)),
+    "/api/health",
+    healthRouter,
   );
 
-  // Root endpoint
+  app.use(
+    "/api/properties",
+    propertiesRouter,
+  );
+
+  app.use(
+    "/api/auth",
+    authRouter,
+  );
+
+  app.use(
+    "/api/bookings",
+    bookingsRouter,
+  );
+
+  app.use(
+    "/api",
+    reviewsRouter,
+  );
+
+  app.use(
+    "/api/uploads",
+    uploadsRouter,
+  );
+
+  app.use(
+    "/api/notifications",
+    notificationsRouter,
+  );
+
+  // Local filesystem is only used during local development.
+  // Vercel production should use R2.
+  if (env.UPLOAD_PROVIDER === "local") {
+    const path = require("node:path") as typeof import("node:path");
+
+    app.use(
+      "/uploads",
+      express.static(
+        path.resolve(
+          env.UPLOAD_LOCAL_DIR,
+        ),
+      ),
+    );
+  }
+
   app.get("/", (_req, res) => {
-    res.send("Hello Nestboard");
+    res.json({
+      name: "NestBoard Backend",
+      status: "ok",
+    });
   });
 
-  // Global error handler
   app.use(errorHandler);
 
   return app;
